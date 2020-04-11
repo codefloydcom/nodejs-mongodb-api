@@ -4,14 +4,14 @@
 
 ## Usage
 
-- [Installation and configuration](documentation/installation.md#Installation-and-configuration)
+- [Installation and configuration](documentation/installation.md#installation-and-configuration)
     - [Node initialization](documentation/installation.md#node-initialization)
-    - [Express and dotenv initialization](documentation/installation.md##Express-and-dotenv-initialization)
-    - [Nodemon (Node watch run)](documentation/installation.md#Nodemon-(Node-watch-run))
-    - [Morgan (Logger)](documentation/installation.md#morgan-(Logger))
-    - [Colors (make command line colored)](documentation/installation.md#colors-(make-command-line-colored))
-    - [Express-fileupload](documentation/installation#Express-fileupload)
-    - [Mongoose](documentation/installation.md#Mongoose)
+    - [Express and dotenv initialization](documentation/installation.md#express-and-dotenv-initialization)
+    - [Nodemon (Node watch run)](documentation/installation.md#nodemon-node-watch-run)
+    - [Morgan (Logger)](documentation/installation.md#morgan-logger)
+    - [Colors (make command line colored)](documentation/installation.md#colors-make-command-line-colored)
+    - [Express-fileupload](documentation/installation.md#express-fileupload)
+    - [Mongoose](documentation/installation.md#mongoose)
 - [Express documentation](documentation/express.md#express-documentation)
     - [Initialization](documentation/express.md#Initialization)
     - [Middleware](documentation/express.md#Middleware)

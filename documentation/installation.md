@@ -31,11 +31,9 @@ npm i -D nodemon
     "dev": "nodemon server"
   }
 ```  
-[[Main]](/readme.md#usage)
-
-
-# Usage
 ```
+# Usage
+
 npm run dev
 ```
 [[Main]](/readme.md#usage)

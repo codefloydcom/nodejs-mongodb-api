@@ -1,15 +1,15 @@
-# Mongo DB API based with Mangoose
+# Mongo DB API with Mangoose
 
 >Backend API for Mongo DB. Solution demonstrates mongoose implementation.
 
 ## Usage
 
 - [Installation and configuration](documentation/installation.md#Installation-and-configuration)
-    - [Node initialization](documentation/installation.md##node-initialization)
+    - [Node initialization](documentation/installation.md#node-initialization)
     - [Express and dotenv initialization](documentation/installation.md##Express-and-dotenv-initialization)
-    - [Nodemon (Node watch run)](documentation/installation.md##Nodemon-(Node-watch-run))
-    - [Morgan (Logger)](documentation/installation.md##morgan-(Logger))
-    - [Colors (make command line colored)](documentation/installation.md##colors-(make-command-line-colored))
+    - [Nodemon (Node watch run)](documentation/installation.md#Nodemon-(Node-watch-run))
+    - [Morgan (Logger)](documentation/installation.md#morgan-(Logger))
+    - [Colors (make command line colored)](documentation/installation.md#colors-(make-command-line-colored))
     - [Express-fileupload](documentation/installation#Express-fileupload)
     - [Mongoose](documentation/installation.md#Mongoose)
 - [Express documentation](documentation/express.md#express-documentation)
@@ -21,7 +21,7 @@
 - [Mongoose documentation](documentation/mongoose.md#mongoose-documentation)
     - [Models](documentation/mongoose.md#models)
     - [Hooks](documentation/mongoose.md#hooks)
-    - [Reference](documentation/mongoose.md#Virtual-reference)
+    - [Reference](documentation/mongoose.md#reference)
     - [Virtual reference](documentation/mongoose.md#Virtual-reference)
 
 

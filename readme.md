@@ -12,6 +12,7 @@
     - [Colors (make command line colored)](documentation/installation.md#colors-make-command-line-colored)
     - [Express-fileupload](documentation/installation.md#express-fileupload)
     - [Mongoose](documentation/installation.md#mongoose)
+    - [Security](documentation/installation.md#security)
 - [Express documentation](documentation/express.md#express-documentation)
     - [Initialization](documentation/express.md#Initialization)
     - [Middleware](documentation/express.md#Middleware)

@@ -5,6 +5,12 @@ const errorHandler = (err, req, res, next) => {
     error.message = err.message;
 
     //console.log(err);
+    
+    // jwt-express error handle if token wrong
+    if(err.name === 'UnauthorizedError') {
+        const message = 'Not authorize to access this route';
+        error = new ErrorResponse(message, 401);
+    }
 
     // Error in object id 
     if(err.name === 'CastError') {

@@ -28,6 +28,9 @@ exports.getItem = asyncHandler(async (req, res, next) => {
 // @route       POST /api/items/
 // @access      Private
 exports.postItem = asyncHandler(async (req, res, next) => {
+    // Add user to body
+    req.body.user = req.user.id;
+
     const item = await Item.create(req.body);
 
     res.status(201).json({success: true, data : item});
@@ -43,6 +46,10 @@ exports.deleteItem = asyncHandler(async (req, res, next) => {
         return next(new ErrorResponse(`Item wasn't found with id of ${req.params.id}`, 404));
     }
 
+    if(item.user.toString() != req.user.id) {
+        return next(new ErrorResponse(`User ${item.user} is not athorized to remove this item`, 401));
+    }
+
     await item.remove();
     res.status(200).json({success: true, data: {} });
 });
@@ -51,14 +58,20 @@ exports.deleteItem = asyncHandler(async (req, res, next) => {
 // @route       PUT /api/items/:id
 // @access      Private
 exports.updateItem = asyncHandler(async (req, res, next) => {
-    const item = await Item.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true
-    });
+    let item = await Item.findById(req.params.id);
 
     if(!item) {
         return next(new ErrorResponse(`Item wasn't found with id of ${req.params.id}`, 404));
     }
+
+    if(item.user.toString() != req.user.id) {
+        return next(new ErrorResponse(`User ${item.user} is not athorized to update this item`, 401));
+    }
+
+    item = await Item.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    });
 
     res.status(200).json({success: true, data : item });
 });

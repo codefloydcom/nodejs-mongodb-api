@@ -23,6 +23,10 @@
     - [Hooks](documentation/mongoose.md#hooks)
     - [Reference](documentation/mongoose.md#reference)
     - [Virtual reference](documentation/mongoose.md#Virtual-reference)
+- [Authentication](documentation/auth.md#authentication)
+    - [Custom JWT](documentation/auth.md#custom-jwt)
+    - [Auth0, Azure AD](documentation/auth.md#auth0-azure-ad)
+    - [No auth](documentation/auth.md#no-auth)
 
 
 ## Install Dependencies
@@ -34,8 +38,11 @@ npm install
 ## Run App
 
 ```
-# Run in dev mode
+# Run in dev mode without security
 npm run dev
+
+# Run in dev mode with security model
+npm run dev-auth0 / dev-jwt / dev-azure
 
 # Run in prod mode
 npm start

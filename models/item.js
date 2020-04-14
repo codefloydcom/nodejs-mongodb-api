@@ -30,6 +30,11 @@ const ItemSchema = new mongoose.Schema({
     
     manual : {
         type : String
+    },
+    user: {
+        type : mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
     }
 }, {
     toJSON : { virtuals: true},

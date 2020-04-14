@@ -6,13 +6,17 @@ const extendedResults = require('../middleware/extendedResults');
 
 const router = express.Router({ mergeParams: true });
 
+// Initialize auth middleware switcher
+const { authMiddleware } = require('../auth/switcher');
+const { protect, authorize } = authMiddleware();
+
 router.route('/')
         .get(extendedResults(SubItem, {path : 'item', select : 'name'}), getSubItems)
-        .post(postSubItems);
+        .post(protect, postSubItems);
 
 router.route('/:id')
         .get(getSubItem)
-        .put(updateSubItem)
-        .delete(removeSubItem);
+        .put(protect, updateSubItem)
+        .delete(protect, removeSubItem);
 
 module.exports = router;

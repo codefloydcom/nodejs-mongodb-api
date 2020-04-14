@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const connectMongoDB = require('./config/db');
 
@@ -21,8 +22,15 @@ const mongoSubItems = require('./routes/mongosubitems');
 
 const app = express();
 
+// Initialize auth route switcher
+const { authRouter } = require('./auth/switcher');
+const auth = authRouter(app);
+
 //Body parser middleware
 app.use(express.json());
+
+// Cookie parser
+app.use(cookieParser());
 
 // Logging middleware
 if(process.env.NODE_ENV === 'development') {
@@ -38,6 +46,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mount routers
 app.use('/api/items', mongoItems);
 app.use('/api/subitems', mongoSubItems);
+
+if(process.env.AUTH_TYPE === 'JWT') {
+    app.use('/api/auth', auth);
+}
 
 //Load custom error handler
 app.use(errorHandler);

@@ -7,6 +7,12 @@ const fileupload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const connectMongoDB = require('./config/db');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const hpp = require('hpp');
+const rateLimit = require('express-rate-limit');
+const cors = require('cors');
 
 // Load middleware
 // const logger = require('./middleware/logger');
@@ -39,6 +45,28 @@ if(process.env.NODE_ENV === 'development') {
 
 // Fileupload middleware
 app.use(fileupload());
+
+// Sanitize data
+app.use(mongoSanitize());
+
+// Set security headers
+app.use(helmet());
+
+// Prevent XSS atacks
+app.use(xss());
+
+// Prevent polution attacks
+app.use(hpp());
+
+// Request limiter
+const limiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 mins
+    max: 100 // 100 requests
+});
+app.use(limiter);
+
+// Enable CORS
+app.use(cors());
 
 // Static folders
 app.use(express.static(path.join(__dirname, 'public')));
